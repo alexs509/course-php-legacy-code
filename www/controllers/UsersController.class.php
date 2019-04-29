@@ -1,4 +1,5 @@
 <?php
+use Project\Core\View;
 
 class UsersController
 {

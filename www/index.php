@@ -1,11 +1,16 @@
 <?php
 
+use Project\Core\Routing;
 require 'conf.inc.php';
 
 function myAutoloader($class)
 {
-    $classPath = 'core/'.$class.'.class.php';
-    $classModel = 'models/'.$class.'.class.php';
+
+    $test = str_replace("Project\\","",$class);
+    $test2=str_replace("\\","/",$test);
+    $test3=lcfirst($test2);
+    $classPath = $test3.'.class.php';
+    $classModel = $test3.'.class.php';
     if (file_exists($classPath)) {
         include $classPath;
     } elseif (file_exists($classModel)) {

@@ -1,5 +1,6 @@
 <?php
 
+namespace Project\Core;
 class Validator
 {
     public $errors = [];
@@ -39,27 +40,27 @@ class Validator
         }
     }
 
-    public static function notEmpty($string)
+    public static function notEmpty($string): string
     {
         return !empty(trim($string));
     }
 
-    public static function minLength($string, $length)
+    public static function minLength($string, $length): int
     {
         return strlen(trim($string)) >= $length;
     }
 
-    public static function maxLength($string, $length)
+    public static function maxLength($string, $length): int
     {
         return strlen(trim($string)) <= $length;
     }
 
-    public static function checkEmail($string)
+    public static function checkEmail($string): string
     {
         return filter_var(trim($string), FILTER_VALIDATE_EMAIL);
     }
 
-    public static function checkPassword($string)
+    public static function checkPassword($string): string
     {
         return
                     preg_match('#[a-z]#', $string) &&
