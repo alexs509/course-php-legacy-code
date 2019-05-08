@@ -1,8 +1,10 @@
 <?php
 
-use controllers\PagesController;
-use controllers\UsersController;
-use Models\Users;
+namespace Project\Config;
+
+use Project\Controller\PagesController;
+use Project\Controller\UsersController;
+use Project\Model\Users;
 
 return  [
     Users::class => function($container)    {

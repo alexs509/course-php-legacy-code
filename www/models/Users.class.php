@@ -1,4 +1,5 @@
 <?php
+namespace Project\Model;
 
 class Users extends BaseSQL
 {
