@@ -1,6 +1,6 @@
 <?php
-
 namespace Project\Controller;
+
 use Project\Core\View;
 
 class PagesController

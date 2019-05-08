@@ -1,6 +1,6 @@
 <?php
-
 namespace Project\Core;
+
 class View
 {
     private $v;

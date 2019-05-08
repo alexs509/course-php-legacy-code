@@ -2,6 +2,8 @@
 namespace Project\Controller;
 
 use Project\Core\View;
+use Project\Models\Users;
+use Project\Core\Validator;
 
 class UsersController
 {
