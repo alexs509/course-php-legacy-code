@@ -26,12 +26,16 @@ $slug = explode('?', $_SERVER['REQUEST_URI'])[0];
 $routes = Routing::getRoute($slug);
 extract($routes);
 
+$container = require  'config/di.global.php';
+$container['config'] = require 'config/global.php';
+
 // Vérifie l'existence du fichier et de la classe pour charger le controlleur
 if (file_exists($cPath)) {
     include $cPath;
-    if (class_exists($c)) {
+    if (class_exists('\\Project\\Controller\\'.$c)) {
         //instancier dynamiquement le controller
-        $cObject = new $c();
+        //$cObject = new $c();
+        $cObject = $container['Project\Controller\\'.$c]($container);
         //vérifier que la méthode (l'action) existe
         if (method_exists($cObject, $a)) {
             //appel dynamique de la méthode
