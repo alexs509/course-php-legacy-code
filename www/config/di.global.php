@@ -4,7 +4,7 @@ namespace Project\Config;
 
 use Project\Controller\PagesController;
 use Project\Controller\UsersController;
-use Project\Model\Users;
+use Project\Models\Users;
 
 return  [
     Users::class => function($container)    {
