@@ -19,22 +19,22 @@ class Users extends BaseSQL
         parent::__construct();
     }
 
-    public function setFirstname($firstname): void
+    public function setFirstname(string $firstname): void
     {
         $this->firstname = ucwords(strtolower(trim($firstname)));
     }
 
-    public function setLastname($lastname): void
+    public function setLastname(string $lastname): void
     {
         $this->lastname = strtoupper(trim($lastname));
     }
 
-    public function setEmail($email): void
+    public function setEmail(string $email): void
     {
         $this->email = strtolower(trim($email));
     }
 
-    public function setPwd($pwd): void
+    public function setPwd(string $pwd): void
     {
         $this->pwd = password_hash($pwd, PASSWORD_DEFAULT);
     }
@@ -44,7 +44,7 @@ class Users extends BaseSQL
         $this->role = $role;
     }
 
-    public function setStatus($status): void
+    public function setStatus(string $status): void
     {
         $this->status = $status;
     }
