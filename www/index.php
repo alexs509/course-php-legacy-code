@@ -3,9 +3,8 @@
 use Project\Core\Routing;
 require 'conf.inc.php';
 
-function myAutoloader($class)
+function myAutoloader(string $class)
 {
-
     $test = str_replace("Project\\","",$class);
     $test2=str_replace("\\","/",$test);
     $test3=lcfirst($test2);
