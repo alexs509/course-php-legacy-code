@@ -43,7 +43,7 @@ class View
         }
     }
 
-    public function assign(string $key, array $value): void
+    public function assign(string $key, $value): void
     {
         $this->data[$key] = $value;
     }
