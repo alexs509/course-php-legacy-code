@@ -4,8 +4,8 @@ namespace Project\Core;
 
 class BaseSQL
 {
-    private $pdo;
-    private $table;
+    //private $pdo;
+    //private $table;
 
     /**
      * BaseSQL constructor.
