@@ -1,55 +1,53 @@
 <?php
 namespace Project\Models;
 
-use Project\core\BaseSQL;
+use Project\Core\BaseSQL;
 use Project\Core\Routing;
-
 
 class Users extends BaseSQL
 {
     public $id = null;
-    public $firstname;
-    public $lastname;
-    public $email;
-    public $pwd;
-    public $role = 1;
-    public $status = 0;
+    public $register;
+    public $login;
+    //public $firstname;
+    //public $lastname;
 
-    public function __construct()
+    /**
+     * Users constructor.
+     * @param Login $login
+     */
+    public function __construct(Login $login, Register $register)
     {
-        parent::__construct();
+        //parent::__construct();
+        $this->register =  $register;
+        $this->login =  $login;
+
     }
 
+    public function setLogin(Login $login): void
+    {
+        $this->login = $login;
+    }
+
+    /**
+     * @param string $firstname
+     */
     public function setFirstname(string $firstname): void
     {
         $this->firstname = ucwords(strtolower(trim($firstname)));
     }
 
+    /**
+     * @param string $lastname
+     */
     public function setLastname(string $lastname): void
     {
         $this->lastname = strtoupper(trim($lastname));
     }
 
-    public function setEmail(string $email): void
-    {
-        $this->email = strtolower(trim($email));
-    }
-
-    public function setPwd(string $pwd): void
-    {
-        $this->pwd = password_hash($pwd, PASSWORD_DEFAULT);
-    }
-
-    public function setRole($role): void
-    {
-        $this->role = $role;
-    }
-
-    public function setStatus(string $status): void
-    {
-        $this->status = $status;
-    }
-
+    /**
+     * @return array
+     */
     public function getRegisterForm(): array
     {
         return [
@@ -87,6 +85,9 @@ class Users extends BaseSQL
                 ];
     }
 
+    /**
+     * @return array
+     */
     public function getLoginForm(): array
     {
         return [
