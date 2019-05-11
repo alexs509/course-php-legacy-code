@@ -2,7 +2,6 @@
 namespace Project\Controller;
 
 use Project\Core\View;
-use Project\Models\Users;
 use Project\Core\Validator;
 use Project\Models\Form;
 
@@ -15,8 +14,8 @@ class UsersController
 
     public function addAction(): void
     {
-        $user = new Users();
-        $form = $user->getRegisterForm();
+        $view = new Form();
+        $form = $view->getRegisterForm();
 
         $v = new View('addUser', 'front');
         $v->assign('form', $form);
@@ -24,7 +23,7 @@ class UsersController
 
     public function saveAction(): void
     {
-        $user = new Users();
+        $user = new Form();
         $form = $user->getRegisterForm();
         $method = strtoupper($form['config']['method']);
         $data = $GLOBALS['_'.$method];
