@@ -4,6 +4,7 @@ namespace Project\Controller;
 use Project\Core\View;
 use Project\Models\Users;
 use Project\Core\Validator;
+use Project\Models\Form;
 
 class UsersController
 {
@@ -47,8 +48,8 @@ class UsersController
 
     public function loginAction(): void
     {
-        $user = new Users();
-        $form = $user->getLoginForm();
+        $view = new Form();
+        $form = $view->getLoginForm();
 
         $method = strtoupper($form['config']['method']);
         $data = $GLOBALS['_'.$method];
