@@ -4,11 +4,9 @@ namespace Project\Models;
 use Project\Core\BaseSQL;
 
 
-class Users extends BaseSQL
+class Users
 {
     public $id = null;
-    public $register;
-    public $login;
 
     /**
      * Users constructor.
@@ -21,12 +19,4 @@ class Users extends BaseSQL
         //$this->login =  $login;
 
     }
-
-    public function setLogin(Login $login): void
-    {
-        $this->login = $login;
-    }
-
-
-
 }
