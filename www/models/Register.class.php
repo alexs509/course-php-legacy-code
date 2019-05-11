@@ -19,18 +19,18 @@ class Register
     }
 
     /**
-     * @param string $firstname
+     * @return string
      */
-    public function setFirstname(string $firstname): void
+    public function setFirstname(): string
     {
-        return $this->firstname;
+       return $this->firstname;
     }
 
     /**
-     * @param string $lastname
+     * @return string
      */
-    public function setLastname(string $lastname): void
+    public function setLastname(): string
     {
-        $this->lastname;
+       return $this->lastname;
     }
 }

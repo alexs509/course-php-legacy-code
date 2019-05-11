@@ -1,7 +1,6 @@
 <?php
 
 namespace Project\Models;
-
 use Project\Core\Routing;
 
 class Form

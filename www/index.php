@@ -3,6 +3,9 @@
 use Project\Core\Routing;
 require 'conf.inc.php';
 
+/**
+ * @param string $class
+ */
 function myAutoloader(string $class)
 {
     $test = str_replace("Project\\","",$class);

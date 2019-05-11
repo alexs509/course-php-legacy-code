@@ -20,11 +20,17 @@ class Users
         //$this->login =  $login;
     }
 
+    /**
+     * @param Login $login
+     */
     public function setLogin(Login $login): void
     {
         $this->userLogin = $login;
     }
 
+    /**
+     * @param Register $register
+     */
     public function setRegister(Register $register): void
     {
         $this->userRegister = $register;

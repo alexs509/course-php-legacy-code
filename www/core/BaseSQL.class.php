@@ -18,7 +18,6 @@ class BaseSQL
         } catch (Exception $e) {
             die('Erreur SQL : '.$e->getMessage());
         }
-
         $this->table = get_called_class();
     }
 

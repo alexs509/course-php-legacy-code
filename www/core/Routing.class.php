@@ -18,14 +18,12 @@ class Routing
         } else {
             return ['c' => null, 'a' => null, 'cPath' => null];
         }
-
         return ['c' => $c, 'a' => $a, 'cPath' => $cPath];
     }
 
     public static function getSlug(string $c,string $a): ?string
     {
         $routes = yaml_parse_file(self::$routeFile);
-
         foreach ($routes as $slug => $cAndA) {
             if (!empty($cAndA['controller']) &&
                 !empty($cAndA['action']) &&
@@ -34,7 +32,6 @@ class Routing
                 return $slug;
             }
         }
-
         return null;
     }
 }

@@ -7,12 +7,20 @@ class View
     private $t;
     private $data = [];
 
+    /**
+     * View constructor.
+     * @param $v
+     * @param string $t
+     */
     public function __construct($v, $t = 'back')
     {
         $this->setView($v);
         $this->setTemplate($t);
     }
 
+    /**
+     * @param string $v
+     */
     public function setView(string $v): void
     {
         $viewPath = 'views/'.$v.'.view.php';
@@ -23,6 +31,9 @@ class View
         }
     }
 
+    /**
+     * @param string $t
+     */
     public function setTemplate(string $t): void
     {
         $templatePath = 'views/templates/'.$t.'.tpl.php';
@@ -33,7 +44,11 @@ class View
         }
     }
 
-    public function addModal(string $modal, $config): void
+    /**
+     * @param string $modal
+     * @param $config
+     */
+    public function addModal(string $modal, array $config): void
     {
         $modalPath = 'views/modals/'.$modal.'.mod.php';
         if (file_exists($modalPath)) {
@@ -43,6 +58,10 @@ class View
         }
     }
 
+    /**
+     * @param string $key
+     * @param $value
+     */
     public function assign(string $key, $value): void
     {
         $this->data[$key] = $value;
