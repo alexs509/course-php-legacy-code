@@ -4,6 +4,7 @@ namespace Project\Models;
 use Project\core\BaseSQL;
 use Project\Core\Routing;
 
+
 class Users extends BaseSQL
 {
     public $id = null;

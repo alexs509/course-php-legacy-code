@@ -7,7 +7,7 @@ use Project\Core\Validator;
 
 class UsersController
 {
-    public function defaultAction()
+    public function defaultAction(): void
     {
         echo 'users default';
     }
