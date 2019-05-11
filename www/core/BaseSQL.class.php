@@ -7,6 +7,9 @@ class BaseSQL
     private $pdo;
     private $table;
 
+    /**
+     * BaseSQL constructor.
+     */
     public function __construct()
     {
         try {
@@ -19,6 +22,9 @@ class BaseSQL
         $this->table = get_called_class();
     }
 
+    /**
+     * @param $id
+     */
     public function setId($id): void
     {
         $this->id = $id;
@@ -45,9 +51,7 @@ class BaseSQL
         } else {
             $query->setFetchMode(PDO::FETCH_ASSOC);
         }
-
         $query->execute($where);
-
         return $query->fetch();
     }
 
@@ -60,9 +64,6 @@ class BaseSQL
             $sql = 'INSERT INTO '.$this->table.' ( '.
             implode(',', array_keys($dataChild)).') VALUES ( :'.
             implode(',:', array_keys($dataChild)).')';
-
-            $query = $this->pdo->prepare($sql);
-            $query->execute($dataChild);
         } else {
             $sqlUpdate = [];
             foreach ($dataChild as $key => $value) {
@@ -70,11 +71,9 @@ class BaseSQL
                     $sqlUpdate[] = $key.'=:'.$key;
                 }
             }
-
             $sql = 'UPDATE '.$this->table.' SET '.implode(',', $sqlUpdate).' WHERE id=:id';
-
-            $query = $this->pdo->prepare($sql);
-            $query->execute($dataChild);
         }
+        $query = $this->pdo->prepare($sql);
+        $query->execute($dataChild);
     }
 }
